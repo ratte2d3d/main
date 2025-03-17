@@ -138,5 +138,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 実際のファイルが保存�
 
 SITE_URL = "https://main-8r55.onrender.com"  # 開発環境でのURL
 STATICFILES_DIRS = [
-    BASE_DIR / "Frontend/dist/https://frontend-gn26.onrender.com/",  # ビルドした Angular アプリのパス
+    os.path.join(BASE_DIR, "Frontend", "dist", "front-end")
 ]
