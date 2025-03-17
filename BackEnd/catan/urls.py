@@ -11,4 +11,4 @@ router.register(r'personalResult', PersonalResultViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
