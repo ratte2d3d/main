@@ -124,10 +124,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+ALLOWED_HOSTS = ['main-8r55.onrender.com', 'frontend-gn26.onrender.com', 'localhost', '127.0.0.1']
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-ALLOWED_HOSTS = ['main-8r55.onrender.com', 'localhost', '127.0.0.1']
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
@@ -139,5 +139,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 実際のファイルが保存�
 
 SITE_URL = "https://main-8r55.onrender.com"  # 開発環境でのURL
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "Frontend", "dist", "front-end")
+    os.path.join(BASE_DIR, 'static'),  # Django の静的ファイルディレクトリ（必要に応じて設定）
+    '/opt/render/project/src/FrontEnd/dist/front-end',  # Angular のビルド成果物ディレクトリ
 ]
