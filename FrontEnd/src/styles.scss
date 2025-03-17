@@ -1,0 +1,101 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+@use './styles/ratte_theme-colors.scss' as ratte-theme;
+
+:root {
+  @each $palette-name, $palette in ratte-theme.$palettes {
+    @each $shade, $color in $palette {
+      --#{$palette-name}-#{$shade}: #{$color};
+    }
+  }
+}
+
+html {
+  @include mat.theme(
+    (
+      color: ratte-theme.$primary-palette,
+      typography: Roboto,
+      density: 0,
+    )
+  );
+} /* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 2px;
+  color: var(--mat-sys-primary);
+  background-color: var(--mat-sys-surface);
+}
+
+button {
+  font-size: 15px !important;
+  border-radius: 10px !important;
+}
+
+mat-form-field {
+  margin: 10px 0px;
+}
+
+mat-icon {
+  margin: 0px 5px 5px 0px;
+  transform: scale(1.3);
+  color: var(--mat-sys-primary);
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+
+  .top {
+    align-self: flex-start;
+  }
+
+  .bottom {
+    align-self: flex-end;
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  .center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .right {
+    text-align: right;
+    // flex-shrink: 0; /* 長くなっても左側を押し出さない */
+  }
+}
+
+.sub-header {
+  height: 70px;
+  margin-bottom: 20px;
+  box-shadow: 0px 2px 5px #aaa;
+
+  .sub-header-item {
+    margin: 0 30px;
+    display: flex;
+    align-items: center;
+
+    .toggle {
+      margin-right: 30px;
+    }
+  }
+}

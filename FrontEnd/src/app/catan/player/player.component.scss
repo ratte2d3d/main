@@ -1,0 +1,18 @@
+table {
+  .icon-container {
+    padding: 5px 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .graduation {
+    text-align: center;
+    mat-icon {
+      color: var(--primary-30);
+    }
+  }
+
+  .edit {
+    text-align: end;
+  }
+}

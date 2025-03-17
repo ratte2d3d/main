@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="between sub-header">
+    <div class="sub-header-item">
+      <mat-icon>account_balance</mat-icon>
+      <h2>ゲーム開始準備</h2>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <form [formGroup]="gameResultForm" class="game-result-form">
+      <!-- タイトル -->
+      <app-shared-field
+        formControlName="title"
+        type="select"
+        label="ゲーム名"
+        [required]="true"
+        [options]="titles"
+      ></app-shared-field>
+
+      <!-- プレイ日 -->
+      <app-shared-field
+        formControlName="date"
+        type="date-picker"
+        label="プレイ日"
+        [required]="true"
+        startView="month"
+      ></app-shared-field>
+
+      <button
+        mat-flat-button
+        [disabled]="gameResultForm.invalid || personalResultsForm.invalid"
+        (click)="Register()"
+      >
+        開始
+      </button>
+    </form>
+
+    <form [formGroup]="personalResultsForm" class="personals-result-form">
+      <div formArrayName="results" class="personal-result-container">
+        <div
+          *ngFor="let result of personalResults.controls; let i = index"
+          [formGroupName]="i"
+          class="personal-result-form"
+        >
+          <!-- ヘッダー -->
+          <div class="personal-result-header">
+            <h3>{{ i + 1 }}人目</h3>
+            <button mat-icon-button (click)="removePersonalResult(i)">
+              <mat-icon class="delete">delete</mat-icon>
+            </button>
+          </div>
+
+          <!-- プレイヤー名 -->
+          <app-shared-field
+            formControlName="player"
+            type="select"
+            label="プレイヤー名"
+            [required]="true"
+            [options]="players"
+          ></app-shared-field>
+
+          <!-- 色 -->
+          <app-shared-field
+            formControlName="color"
+            type="select"
+            label="色選択"
+            [required]="true"
+            [options]="colors"
+            [optionColor]="optionColors"
+          ></app-shared-field>
+        </div>
+        <button mat-icon-button (click)="addPersonalResult()">
+          <mat-icon class="add">add_circle</mat-icon>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

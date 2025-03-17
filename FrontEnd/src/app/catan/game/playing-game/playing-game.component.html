@@ -1,0 +1,172 @@
+<div class="container">
+  <div class="sub-header between">
+    <div class="sub-header-item left">
+      <mat-icon>account_balance</mat-icon>
+      <h2>ゲーム記録：{{ setGameTitle(gameResult?.title!) }}</h2>
+    </div>
+    <div class="sub-header-item center">
+      <h3>ターン：{{ gameResult?.turn }}</h3>
+      <button mat-flat-button *ngIf="!gameEnded" (click)="GameEnd()" class="game-end">
+        ゲーム終了
+      </button>
+      <h2 class="winner" [style.color]="setCatanColor(winnerResult.color!)" *ngIf="gameEnded">
+        勝者：{{ winnerResult.player!.name }}
+      </h2>
+    </div>
+    <div class="sub-header-item right">
+      <h3>直近の出目：</h3>
+      <h2 [style.color]="recentDiceColor[0]">{{ gameResult?.recentDice1 }}</h2>
+      <mat-icon>arrow_left</mat-icon>
+      <h3 [style.color]="recentDiceColor[1]">{{ gameResult?.recentDice2 }}</h3>
+      <mat-icon>arrow_left</mat-icon>
+      <h3 [style.color]="recentDiceColor[2]">{{ gameResult?.recentDice3 }}</h3>
+      <mat-icon>arrow_left</mat-icon>
+      <h3 [style.color]="recentDiceColor[3]">{{ gameResult?.recentDice4 }}</h3>
+      <mat-icon>arrow_left</mat-icon>
+      <h3 [style.color]="recentDiceColor[4]">{{ gameResult?.recentDice5 }}</h3>
+      <mat-icon>arrow_left</mat-icon>
+      <h3 [style.color]="recentDiceColor[5]">{{ gameResult?.recentDice6 }}</h3>
+    </div>
+  </div>
+
+  <div class="top-container between">
+    <!-- 時間情報 -->
+    <div class="date left top">
+      <h2>{{ gameResult?.date }}</h2>
+      <h3>開始時刻：{{ startTime }}</h3>
+      <h3 *ngIf="gameEnded">終了時刻：{{ endTime }}</h3>
+      <h3 *ngIf="gameEnded">プレイ時間：{{ gameResult?.playTime }}</h3>
+    </div>
+
+    <!-- メインの出目グラフ -->
+    <div class="main-dice-result center bottom">
+      <canvas baseChart [data]="gameChartData" [options]="sumChartOptions" [type]="ChartType">
+      </canvas>
+      <canvas
+        baseChart
+        [data]="personalChartData"
+        [options]="sumChartOptions"
+        [type]="ChartType"
+        *ngIf="!gameEnded"
+      >
+      </canvas>
+    </div>
+  </div>
+
+  <!-- プレイヤー -->
+  <div class="player-results-container">
+    <div
+      class="player-result-container"
+      *ngFor="let personalResult of personalResults; let i = index"
+      [style.color]="setCatanColor(personalResult.color!)"
+    >
+      <div class="player-container" [ngClass]="{ 'my-turn': personalResult.order == order }">
+        <mat-icon *ngIf="personalResult.win == true">star</mat-icon>
+        <img [src]="personalResult.player?.icon" class="icon" style="border: 3px solid" />
+        <h3>{{ personalResult.player?.name }}</h3>
+      </div>
+      <div class="result-container">
+        <div class="half-result">
+          <div class="result">
+            <button mat-icon-button (click)="BuildingLand(i)">
+              <mat-icon [style.color]="setCatanColor(personalResult.color!)">gite</mat-icon>
+            </button>
+            <h3>× {{ personalResult.land }}</h3>
+          </div>
+          <div class="result">
+            <button mat-icon-button (click)="BuildingCity(i)">
+              <mat-icon [style.color]="setCatanColor(personalResult.color!)"
+                >location_city</mat-icon
+              >
+            </button>
+            <h3>× {{ personalResult.city }}</h3>
+          </div>
+          <div class="result">
+            <button mat-icon-button (click)="Developments(i)">
+              <mat-icon [style.color]="setCatanColor(personalResult.color!)">style</mat-icon>
+            </button>
+            <h3>× {{ personalResult.card }}</h3>
+          </div>
+        </div>
+        <div class="half-result">
+          <div class="result" *ngIf="personalResult.longestRoad == true">
+            <div class="badge-icon">
+              <mat-icon [style.color]="setCatanColor(personalResult.color!)">add_road</mat-icon>
+              <mat-icon class="bottom-right" [style.color]="setCatanColor(personalResult.color!)"
+                >workspace_premium</mat-icon
+              >
+            </div>
+          </div>
+          <div class="result" *ngIf="personalResult.largestArmy == true">
+            <div class="badge-icon">
+              <mat-icon [style.color]="setCatanColor(personalResult.color!)">bedroom_baby</mat-icon>
+              <mat-icon class="bottom-right" [style.color]="setCatanColor(personalResult.color!)"
+                >workspace_premium</mat-icon
+              >
+            </div>
+          </div>
+          <div class="result" *ngIf="personalResult.point != 0">
+            <div class="badge-icon">
+              <mat-icon
+                *ngIf="personalResult.point == 1"
+                [style.color]="setCatanColor(personalResult.color!)"
+                >looks_one</mat-icon
+              >
+              <mat-icon
+                *ngIf="personalResult.point == 2"
+                [style.color]="setCatanColor(personalResult.color!)"
+                >looks_two</mat-icon
+              >
+              <mat-icon
+                *ngIf="personalResult.point == 3"
+                [style.color]="setCatanColor(personalResult.color!)"
+                >looks_3</mat-icon
+              >
+              <mat-icon
+                *ngIf="personalResult.point == 4"
+                [style.color]="setCatanColor(personalResult.color!)"
+                >looks_4</mat-icon
+              >
+              <mat-icon
+                *ngIf="personalResult.point == 5"
+                [style.color]="setCatanColor(personalResult.color!)"
+                >looks_5</mat-icon
+              >
+              <mat-icon class="bottom-right" [style.color]="setCatanColor(personalResult.color!)"
+                >workspace_premium</mat-icon
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 該当プレイヤーの出目 -->
+  <div class="personal-dice" *ngIf="!gameEnded">
+    <!-- <button mat-flat-button (click)="Redo()" [disabled]="this.gameResult!.turn == 1" class="redo">
+      やり直し
+    </button> -->
+    <button
+      mat-stroked-button
+      *ngFor="let num of [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]"
+      [ngClass]="{ 'now-dice': nowDice === num }"
+      (click)="dice(num)"
+    >
+      {{ num }}
+    </button>
+    <button mat-flat-button [disabled]="nowDice == 0" (click)="Register()">続行</button>
+  </div>
+
+  <!-- 出目グラフ -->
+  <div class="all-dice-result" *ngIf="gameEnded">
+    <canvas
+      baseChart
+      [data]="personalChartData"
+      [options]="personalChartOptions"
+      [type]="ChartType"
+      *ngFor="let personalChartData of allPersonalChartData; let i = index"
+    >
+    </canvas>
+  </div>
+</div>

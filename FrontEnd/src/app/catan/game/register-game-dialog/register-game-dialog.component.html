@@ -1,0 +1,73 @@
+<h2 mat-dialog-title [style]="">最終記録</h2>
+<mat-dialog-content>
+  <p>該当する項目を入力してください</p>
+
+  <div>
+    <form [formGroup]="personalResultsForm" class="player-form">
+      <!-- 勝者 -->
+      <app-shared-field
+        formControlName="winner"
+        type="select"
+        label="勝者"
+        [required]="true"
+        [options]="players"
+      ></app-shared-field>
+      <!-- 1ポイント目 -->
+      <app-shared-field
+        formControlName="point1"
+        type="select"
+        label="1ポイント目保持者"
+        [options]="players"
+      ></app-shared-field>
+      <!-- 2ポイント目 -->
+      <app-shared-field
+        formControlName="point2"
+        type="select"
+        label="2ポイント目保持者"
+        [options]="players"
+      ></app-shared-field>
+      <!-- 3ポイント目 -->
+      <app-shared-field
+        formControlName="point3"
+        type="select"
+        label="3ポイント目保持者"
+        [options]="players"
+      ></app-shared-field>
+      <!-- 4ポイント目 -->
+      <app-shared-field
+        formControlName="point4"
+        type="select"
+        label="4ポイント目保持者"
+        [options]="players"
+      ></app-shared-field>
+      <!-- 5ポイント目 -->
+      <app-shared-field
+        formControlName="point5"
+        type="select"
+        label="5ポイント目保持者"
+        [options]="players"
+      ></app-shared-field>
+      <!-- 道ボーナス -->
+      <app-shared-field
+        formControlName="longestRoad"
+        type="select"
+        label="道ボーナス保持者"
+        [options]="players"
+      ></app-shared-field>
+      <!-- 騎士ボーナス -->
+      <app-shared-field
+        formControlName="largestArmy"
+        type="select"
+        label="騎士ボーナス保持者"
+        [options]="players"
+      ></app-shared-field>
+    </form>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">キャンセル</button>
+  <button mat-flat-button [disabled]="personalResultsForm.invalid" (click)="onRegister()">
+    登録
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,94 @@
+<!-- Input -->
+<div *ngIf="type === 'input'">
+  <mat-form-field appearance="outline" [hintLabel]="hintLabel">
+    <mat-label>{{ label }}</mat-label>
+    <!-- 現状disabledは効かない（直接trueで効く） -->
+    <input
+      matInput
+      (ngModelChange)="onChange($event)"
+      [placeholder]="placeholder"
+      [maxlength]="maxlength"
+      [(ngModel)]="value"
+      [required]="required"
+      [disabled]="disabled"
+      #ngmodel="ngModel"
+    />
+    <mat-hint *ngIf="maxlength" align="end">{{ value.length }} / {{ maxlength }}</mat-hint>
+    <!-- エラーメッセージ -->
+    <mat-error *ngIf="ngmodel.invalid && ngmodel.touched">{{ errorMessage }}</mat-error>
+  </mat-form-field>
+</div>
+
+<!-- Select -->
+<div *ngIf="type === 'select'">
+  <mat-form-field appearance="outline" [hintLabel]="hintLabel">
+    <mat-label>{{ label }}</mat-label>
+    <!-- 現状disabledは効かない（直接trueで効く） -->
+    <mat-select
+      (selectionChange)="onChange($event.value)"
+      [placeholder]="placeholder"
+      [(ngModel)]="value"
+      [required]="required"
+      [disabled]="disabled"
+      [style.color]="selectedColor"
+      [style.font-weight]="optionFont"
+      #ngmodel="ngModel"
+    >
+      <mat-option
+        *ngFor="let option of options; let i = index"
+        [style.color]="optionColor[i]"
+        [style.font-weight]="optionFont"
+        [value]="option.key"
+        (click)="setSelectedColor(optionColor[i])"
+        >{{ option.viewValue }}</mat-option
+      >
+    </mat-select>
+    <!-- エラーメッセージ -->
+    <mat-error *ngIf="ngmodel.invalid && ngmodel.touched">{{ errorMessage }}</mat-error>
+  </mat-form-field>
+</div>
+
+<!-- Password -->
+<div *ngIf="type === 'password'">
+  <mat-form-field appearance="outline" [hintLabel]="hintLabel">
+    <mat-label>{{ label }}</mat-label>
+    <input
+      matInput
+      (ngModelChange)="onChange($event)"
+      [placeholder]="placeholder"
+      [maxlength]="maxlength"
+      [(ngModel)]="value"
+      [required]="required"
+      [disabled]="disabled"
+      #ngmodel="ngModel"
+      [type]="hide() ? 'password' : 'text'"
+    />
+    <button mat-icon-button matSuffix (click)="onHide($event)" [attr.aria-pressed]="hide()">
+      <mat-icon>{{ hide() ? 'visibility_off' : 'visibility' }}</mat-icon>
+    </button>
+    <mat-hint *ngIf="maxlength" align="end">{{ value.length }} / {{ maxlength }}</mat-hint>
+    <!-- エラーメッセージ -->
+    <mat-error *ngIf="ngmodel.invalid && ngmodel.touched">{{ errorMessage }}</mat-error>
+  </mat-form-field>
+</div>
+
+<!-- DatePicker -->
+<div *ngIf="type === 'date-picker'">
+  <mat-form-field appearance="outline">
+    <mat-label>{{ label }}</mat-label>
+    <input
+      matInput
+      (dateChange)="onChange($event.value)"
+      [matDatepicker]="picker"
+      [placeholder]="placeholder"
+      [(ngModel)]="value"
+      [required]="required"
+      [disabled]="disabled"
+      #ngmodel="ngModel"
+    />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker [startView]="startView"></mat-datepicker>
+    <!-- エラーメッセージ -->
+    <mat-error *ngIf="ngmodel.invalid && ngmodel.touched">{{ errorMessage }}</mat-error>
+  </mat-form-field>
+</div>

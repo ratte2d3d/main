@@ -1,0 +1,30 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "compounds": [
+        {
+            "name": "Start App",
+            "configurations": ["Launch Angular", "Launch Django"]
+        }
+    ],
+    "configurations": [
+        {
+            "type": "node-terminal",
+            "name": "Launch Angular",
+            "request": "launch",
+            "command": "ng serve",
+            "cwd": "${workspaceFolder}/FrontEnd"
+        },
+        {
+            "type": "debugpy",
+            "name": "Launch Django",
+            "request": "launch",
+            "program": "manage.py",
+            "args": ["runserver", "127.0.0.1:8000"],
+            "cwd": "${workspaceFolder}/BackEnd",
+            "python": "${workspaceFolder}/../ratte_env/bin/python"
+        }
+    ]
+}

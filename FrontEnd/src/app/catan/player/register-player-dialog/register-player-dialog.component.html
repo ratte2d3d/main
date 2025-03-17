@@ -1,0 +1,87 @@
+<h2 mat-dialog-title *ngIf="!data">プレイヤー登録</h2>
+<h2 mat-dialog-title *ngIf="data">プレイヤーの編集</h2>
+<mat-dialog-content>
+  <p>プレイヤー情報を入力してください</p>
+
+  <div>
+    <form [formGroup]="playerForm" class="player-form">
+      <!-- 名前入力 -->
+      <app-shared-field
+        formControlName="name"
+        type="input"
+        label="名前（ニックネーム）"
+        placeholder="例）よよよ"
+        [required]="true"
+        [maxlength]="8"
+      ></app-shared-field>
+
+      <!-- ユーザーネーム入力 -->
+      <app-shared-field
+        formControlName="username"
+        type="input"
+        label="ユーザーネーム"
+        placeholder="例）yoyoyo_423"
+        [required]="true"
+        [maxlength]="20"
+      ></app-shared-field>
+
+      <!-- パスワード入力 -->
+      <app-shared-field
+        formControlName="password"
+        type="password"
+        label="パスワード"
+        [required]="true"
+        [maxlength]="20"
+      ></app-shared-field>
+
+      <!-- 誕生日選択 -->
+      <app-shared-field
+        formControlName="birthday"
+        type="date-picker"
+        label="誕生日"
+        [required]="true"
+        startView="multi-year"
+      ></app-shared-field>
+
+      <!-- 画像選択 -->
+      <div class="select-icon-image">
+        <button mat-raised-button (click)="fileInput.click()">アイコン画像選択</button>
+        <input
+          #fileInput
+          type="file"
+          formControlName="icon"
+          (change)="onImageChange($event)"
+          accept="image/*"
+          hidden
+        />
+        <!-- アップロードされた画像のプレビュー -->
+        <div *ngIf="iconPreview">
+          <img [src]="iconPreview" alt="Icon Image Preview" />
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- 権限 -->
+        <app-shared-field
+          formControlName="role"
+          type="select"
+          label="ユーザ権限"
+          [options]="roles"
+        ></app-shared-field>
+
+        <!-- 卒業チェック -->
+        <mat-checkbox formControlName="isGraduated" *ngIf="data">卒業生</mat-checkbox>
+      </div>
+    </form>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">キャンセル</button>
+  <button mat-flat-button [disabled]="playerForm.invalid" *ngIf="!data" (click)="onRegister()">
+    登録
+  </button>
+  <button mat-flat-button [disabled]="playerForm.invalid" *ngIf="data" (click)="onRegister()">
+    変更
+  </button>
+</mat-dialog-actions>

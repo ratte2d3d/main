@@ -1,0 +1,118 @@
+.game-end {
+  background-color: var(--error-60);
+  margin-left: 20px;
+}
+
+.winner {
+  margin-left: 20px;
+}
+
+.top-container {
+  height: 200px;
+  margin-bottom: 20px;
+
+  .date {
+    h2 {
+      margin: 0px;
+    }
+    margin: 0px 20px;
+  }
+
+  .main-dice-result {
+    display: flex;
+    justify-content: center;
+    canvas {
+      height: 200px;
+      margin: 0px 20px;
+    }
+  }
+}
+
+.player-results-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  .player-container {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+
+    mat-icon {
+      color: red;
+    }
+
+    h3 {
+      margin-left: 10px;
+    }
+  }
+
+  .my-turn {
+    border: 3px solid;
+    border-radius: 20px;
+    background-color: #fff;
+  }
+
+  .result-container {
+    display: flex;
+    justify-content: center;
+    .half-result {
+      display: flex;
+      flex-flow: column;
+      margin: 0px 10px;
+      .result {
+        display: flex;
+        align-items: center;
+        height: 50px;
+        .badge-icon {
+          position: relative;
+          display: inline-block;
+          .bottom-right {
+            transform: scale(1);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            transform: translate(50%, 50%);
+            border-radius: 50%;
+            background-color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+.mat-badge-content {
+  // background-color: red; /* バッジの背景色を赤に */
+  font-size: 15px; /* 文字サイズ */
+  width: 20px; /* バッジの幅 */
+  height: 20px; /* バッジの高さ */
+  line-height: 20px;
+  transform: translate(0px, -15px); /* 位置調整 */
+}
+
+.personal-dice {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0px;
+  button {
+    margin: 0px 5px;
+  }
+  .redo {
+    background-color: var(--error-50);
+  }
+  .now-dice {
+    background-color: var(--primary-90);
+  }
+}
+
+.all-dice-result {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  canvas {
+    width: 20%;
+    margin: 10px 20px;
+  }
+}
