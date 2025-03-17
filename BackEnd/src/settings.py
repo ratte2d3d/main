@@ -61,7 +61,7 @@ ROOT_URLCONF = 'src.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'FrontEnd/dist/front-end')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,7 +122,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # collectstatic で集めた静的ファイルの保存先
 
 ALLOWED_HOSTS = ['main-8r55.onrender.com', 'frontend-gn26.onrender.com', 'localhost', '127.0.0.1']
 
@@ -138,7 +139,7 @@ MEDIA_URL = '/media/'  # ユーザーがブラウザからアクセスする際�
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 実際のファイルが保存される場所
 
 SITE_URL = "https://main-8r55.onrender.com"  # 開発環境でのURL
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),  # Django の静的ファイルディレクトリ（必要に応じて設定）
-    '/opt/render/project/src/FrontEnd/dist/front-end',  # Angular のビルド成果物ディレクトリ
+    os.path.join(BASE_DIR, 'FrontEnd/dist/front-end'),  # Angularのビルド成果物の場所
 ]
