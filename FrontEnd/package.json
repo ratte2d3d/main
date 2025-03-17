@@ -2,7 +2,7 @@
   "name": "front-end",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
+    "postinstall": "npm install -g @angular/cli",
     "start": "ng serve --host 0.0.0.0 --port 80",
     "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
