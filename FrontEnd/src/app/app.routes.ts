@@ -12,6 +12,7 @@ export const routes: Routes = [
     path: 'catan',
     component: CatanComponent,
     children: [
+      { path: '**', redirectTo: '', pathMatch: 'full' },
       { path: '', component: CatanHomeComponent, title: 'Catan' },
       { path: 'player', component: PlayerComponent, title: 'Player' },
       {
