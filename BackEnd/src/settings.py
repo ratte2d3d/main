@@ -118,13 +118,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # collectstatic で集めた静的ファイルの保存先
-
 ALLOWED_HOSTS = ['main-8r55.onrender.com', 'frontend-gn26.onrender.com', 'localhost', '127.0.0.1']
 
 # Default primary key field type
@@ -135,5 +128,12 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 # メディアファイルの保存場所
 MEDIA_URL = '/media/'  # ユーザーがブラウザからアクセスする際のURLパス
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 実際のファイルが保存される場所
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # collectstatic で集めた静的ファイルの保存先
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, '../FrontEnd/dist/front-end/browser')
+]
