@@ -11,7 +11,6 @@ from rest_framework.response import Response
 # from django.shortcuts import get_object_or_404
 from django.conf import settings
 from django_filters.rest_framework import DjangoFilterBackend
-from django.shortcuts import render
 
 class PlayerViewSet(viewsets.ModelViewSet):
     queryset = Player.objects.all()
