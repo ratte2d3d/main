@@ -12,7 +12,6 @@ router.register(r'personalResult', PersonalResultViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
-    re_path(r'^(?!api/).*$', TemplateView.as_view(template_name="index.html")), 
 ]
 
 if not settings.DEBUG:
