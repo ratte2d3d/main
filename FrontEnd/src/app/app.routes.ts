@@ -7,12 +7,12 @@ import { CatanHomeComponent } from './catan/catan-home/catan-home.component';
 import { PlayingGameComponent } from './catan/game/playing-game/playing-game.component';
 
 export const routes: Routes = [
+  { path: '**', redirectTo: '', pathMatch: 'full' },
   { path: '', component: HomeComponent, title: 'home' },
   {
     path: 'catan',
     component: CatanComponent,
     children: [
-      { path: '**', redirectTo: '', pathMatch: 'full' },
       { path: '', component: CatanHomeComponent, title: 'Catan' },
       { path: 'player', component: PlayerComponent, title: 'Player' },
       {
