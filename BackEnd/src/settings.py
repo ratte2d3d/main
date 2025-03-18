@@ -123,7 +123,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # collectstatic で集めた静的ファイルの保存先
 
 ALLOWED_HOSTS = ['main-8r55.onrender.com', 'frontend-gn26.onrender.com', 'localhost', '127.0.0.1']
 
@@ -137,9 +136,3 @@ CORS_ORIGIN_ALLOW_ALL = True
 MEDIA_URL = '/media/'  # ユーザーがブラウザからアクセスする際のURLパス
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # 実際のファイルが保存される場所
-
-SITE_URL = "https://main-8r55.onrender.com"  # 開発環境でのURL
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'FrontEnd/dist/front-end'),  # Angularのビルド成果物の場所
-]

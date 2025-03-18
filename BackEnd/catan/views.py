@@ -13,9 +13,6 @@ from django.conf import settings
 from django_filters.rest_framework import DjangoFilterBackend
 from django.shortcuts import render
 
-def angular_app(request):
-    return render(request, 'index.html')
-
 class PlayerViewSet(viewsets.ModelViewSet):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
