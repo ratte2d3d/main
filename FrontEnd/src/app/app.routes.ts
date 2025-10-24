@@ -10,7 +10,7 @@ import { KohamaYujinComponent } from './kohama-yujin/kohama-yujin';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, title: 'home' },
-  { path: 'kohama-yujin',
+  { path: 'kohama-yujin', title: '小濱悠心' ,
     component: KohamaYujinComponent
   },
   {

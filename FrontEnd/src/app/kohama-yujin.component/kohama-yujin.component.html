@@ -1,0 +1,18 @@
+<div class="header-container">
+  <div class="header-image">
+    <a [routerLink]="['./']"><img src="images/header_kohama.png" /></a>
+  </div>
+  <div class="header-link">
+    <button [routerLink]="['./']">
+      トップ
+    </button>
+    <button [routerLink]="['./programming']">
+      プログラミング
+    </button>
+    <button [routerLink]="['./modeling']">
+      モデリング
+    </button>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

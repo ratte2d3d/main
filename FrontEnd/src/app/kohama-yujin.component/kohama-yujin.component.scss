@@ -1,0 +1,18 @@
+.header-container {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: #eee;
+
+  .header-image {
+    margin: 0px 30px;
+    img {
+      height: 50px;
+    }
+  }
+
+  button {
+    background-color: #eee;
+    font-weight: bold;
+  }
+}

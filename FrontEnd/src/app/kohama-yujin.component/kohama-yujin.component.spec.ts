@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KohamaYujinComponent } from './kohama-yujin';
+import { KohamaYujinComponent } from './kohama-yujin.component';
 
 describe('KohamaYujinComponent', () => {
   let component: KohamaYujinComponent;
