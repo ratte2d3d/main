@@ -1,16 +1,14 @@
 <div class="container">
-  <div class="sub-header between">
-    <div class="sub-header-item">
-      <mat-icon>view_in_ar</mat-icon>
-      <h2>卒業研究</h2>
+    <div class="sub-header between">
+        <div class="sub-header-item">
+            <mat-icon>view_in_ar</mat-icon>
+            <h2>卒業研究</h2>
+        </div>
     </div>
 
-    <div class="sub-header-item">
-      <!-- 学年変更 -->
-        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
-            <mat-tab label="Bachelor">学部</mat-tab>
-            <mat-tab label="Master">修士</mat-tab>
-        </mat-tab-group>
-    </div>
-  </div>
+    <!-- 学年変更 -->
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+        <mat-tab label="Bachelor"><app-bachelor></mat-tab>
+        <mat-tab label="Master">修士</mat-tab>
+    </mat-tab-group>
 </div>
