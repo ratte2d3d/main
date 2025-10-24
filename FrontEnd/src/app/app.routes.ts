@@ -6,9 +6,13 @@ import { GameComponent } from './catan/game/game.component';
 import { ResultComponent } from './catan/result/result.component';
 import { PlayingGameComponent } from './catan/game/playing-game/playing-game.component';
 import { GameListComponent } from './catan/game-list/game-list.component';
+import { KohamaYujinComponent } from './kohama-yujin/kohama-yujin';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, title: 'home' },
+  { path: 'kohama-yujin',
+    component: KohamaYujinComponent
+  },
   {
     path: 'catan',
     component: CatanComponent,
