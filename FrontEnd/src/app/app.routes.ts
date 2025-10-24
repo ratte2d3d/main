@@ -7,11 +7,17 @@ import { ResultComponent } from './catan/result/result.component';
 import { PlayingGameComponent } from './catan/game/playing-game/playing-game.component';
 import { GameListComponent } from './catan/game-list/game-list.component';
 import { KohamaYujinComponent } from './kohama-yujin/kohama-yujin.component';
+import { TopComponent } from './kohama-yujin/top/top.component';
+import { GraduationProjectComponent } from './kohama-yujin/graduation-project/graduation-project.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, title: 'home' },
-  { path: 'kohama-yujin', title: '小濱悠心' ,
-    component: KohamaYujinComponent
+  { path: 'kohama-yujin',
+    component: KohamaYujinComponent,
+    children: [
+      { path: '', component: TopComponent, title: 'Yujin Kohama' },
+      { path: 'graduation-project', component: GraduationProjectComponent, title: 'Yujin Kohama | 卒業研究' },
+    ],
   },
   {
     path: 'catan',
