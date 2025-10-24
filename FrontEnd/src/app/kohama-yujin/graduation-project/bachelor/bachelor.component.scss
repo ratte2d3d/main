@@ -1,3 +1,13 @@
 .container{
     padding: 50px;
 }
+
+h1{
+    text-align: center;
+}
+
+iframe{
+    display: block;
+    margin: 0 auto;
+    border: 3px solid var(--primary-50);
+}

@@ -1,13 +1,13 @@
 .header-container {
-  height: 100px;
+  height: 80px;
   display: flex;
   align-items: center;
-  background-color: #333;
+  background-color: #eee;
 
   .header-image {
     margin: 0px 30px;
     img {
-      height: 80px;
+      height: 60px;
     }
   }
 
@@ -15,6 +15,6 @@
     background-color: var(--primary-50);
     font-weight: bold;
     margin-right: 20px;
-    color: #333;
+    color: #eee;
   }
 }
