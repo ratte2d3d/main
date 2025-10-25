@@ -1,6 +1,6 @@
 <div class="header-container">
   <div class="header-image">
-    <a [routerLink]="['./']"><img src="images/header_kohama.png" /></a>
+    <a [routerLink]="['./']"><img src="images/header/header_kohama.png" /></a>
   </div>
   <div class="header-link">
     <button mat-flat-button [routerLink]="['./']">
@@ -19,3 +19,24 @@
 </div>
 
 <router-outlet></router-outlet>
+
+<!-- フッター: 左にコピーライト、中央にGitHubリンク (個人・学校)、右は空領域 -->
+<div class="footer-container">
+  <div class="footer-left">
+    <p>© 2025 Yujin Kohama</p>
+  </div>
+
+  <div class="footer-center">
+    <a class="github-link school" href="https://github.com/kohama-yujin" target="_blank" rel="noopener">
+      <img class="github-img" src="images/github/github-mark-white.png"/>
+      <span class="github-label">School</span>
+    </a>
+
+    <a class="github-link personal" href="https://github.com/ratte2d3d" target="_blank" rel="noopener">
+      <img class="github-img" src="images/github/github-mark-white.png" />
+      <span class="github-label">Personal</span>
+    </a>
+  </div>
+
+  <div class="footer-right"></div>
+</div>
