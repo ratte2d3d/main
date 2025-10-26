@@ -11,6 +11,26 @@ import { Databases, DBaaS, DevelopmentTools, Frameworks, IaaS, Languages, PaaS }
 })
 export class BoardGameManagementComponent {
   title = 'ボードゲームの戦績管理アプリ';
+  images = [
+    'images/kohama-yujin/programming/board_game_management/catan1.png',
+    'images/kohama-yujin/programming/board_game_management/catan2.png',
+    'images/kohama-yujin/programming/board_game_management/catan3.png',
+    'images/kohama-yujin/programming/board_game_management/catan4.png',
+    'images/kohama-yujin/programming/board_game_management/catan5.png',
+    'images/kohama-yujin/programming/board_game_management/catan6.png',
+    'images/kohama-yujin/programming/board_game_management/catan7.png',
+    'images/kohama-yujin/programming/board_game_management/catan8.png',
+  ]
+  image_descriptions = [
+    'ホーム画面では、各プレイヤーの戦績やボーナス等の情報がランキング形式で表示されています。',
+    'プレイヤー画面では、登録・編集が行えます。また、研究室での利用を想定しているため、卒業生の表示可否も選択できます。',
+    '登録画面では、名前とユーザーネーム、パスワード、誕生日、アイコン等の情報を入力します。',
+    'ゲーム開始時の画面です。ゲーム名とプレイ日は自動入力され、プレイヤーと色はプルダウンで選択します。人数の増減も可能です。',
+    'ゲーム中の画面です。ゲーム中に出たサイコロの出目や、プレイヤ―ごとの出目がグラフで表示されています。',
+    'ゲーム終了時には、勝者やポイント取得者をプルダウンで選択します。',
+    'ゲーム一覧画面では、これまでのゲーム情報が表示されています。右側の詳細ボタンを押すと、詳しいゲーム記録を確認できます。',
+    '詳細ボタンを押した際の画面です。ゲーム終了時、最終記録を登録した後に表示される画面と同じものです。'
+  ]
   abstract_description = ['研究室で遊ばれていたボードゲーム『カタン』の戦績を記録・可視化するWebアプリです。'];
   period_title = '約2ヶ月';
   period_description = ['2025年2月 〜 2025年3月に大部分を制作し、2025年4月から運用を開始しました。2025年9月にランキングなどの可視化部分を追加し、機能を強化しました。'];

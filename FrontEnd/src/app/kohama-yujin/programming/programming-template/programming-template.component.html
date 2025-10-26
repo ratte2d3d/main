@@ -23,11 +23,25 @@
 </div>
 
 <div class="container">
-    <div class="content">
+    <div class="top">
         <h1>{{ title }}</h1>
         <a mat-stroked-button *ngIf="product_url" [href]="product_url" target="_blank" rel="noopener">
             制作物を開く
         </a>
+        <div class="slider" *ngIf="images">
+            <div
+                class="img-div"
+                *ngFor="let image of images; let i = index"
+                [ngStyle]="{'background-image': 'url(' + image + ')'}"
+                [class.active]="i === currentIndex"
+            ></div>
+            <p *ngIf="image_descriptions">{{ image_descriptions[currentIndex]}}</p>
+            <div class="nav-btns">
+                <button mat-icon-button (click)="prevImage()"><mat-icon>chevron_left</mat-icon></button>
+                <h2> {{ currentIndex + 1 }} / {{ images.length }} </h2>
+                <button mat-icon-button (click)="nextImage()"><mat-icon>chevron_right</mat-icon></button>
+            </div>
+        </div>
     </div>
     <div class="content abstract">
         <h2>概要</h2>

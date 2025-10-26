@@ -9,6 +9,8 @@ import { coreImports } from '../../../../core/core.imports';
 })
 export class ProgrammingTemplateComponent {
   @Input() title!: string;
+  @Input() images!: string[];
+  @Input() image_descriptions!: string[];
   @Input() abbreviation!: string;
   @Input() period_title!: string;
   @Input() period_description!: string[];
@@ -35,4 +37,14 @@ export class ProgrammingTemplateComponent {
     section?.scrollIntoView({ behavior: 'smooth' });
   }
 
+  currentIndex = 0;
+
+  nextImage() {
+    this.currentIndex = (this.currentIndex + 1) % this.images.length;
+  }
+
+  prevImage() {
+    this.currentIndex =
+      (this.currentIndex - 1 + this.images.length) % this.images.length;
+  }
 }
