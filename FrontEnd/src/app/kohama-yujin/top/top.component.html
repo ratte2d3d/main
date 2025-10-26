@@ -1,3 +1,21 @@
 <div class="container">
-    <img src="images/ratte2d3d/ratte_icon.png" alt="Top Image" />
+    <div class="content top">
+        <h1>\ Welcome! /</h1>
+        <img src="images/ratte2d3d/ratte_icon.png" alt="Top Image" />
+        <button mat-icon-button (click)="scroll('about')"><mat-icon>arrow_circle_down</mat-icon></button>
+    </div>
+    <div class="content even about">
+        <h1>このサイトについて</h1>
+        <h2>- About this site -</h2>
+        <p>このサイトは、私の研究・開発経験・制作実績をまとめたポートフォリオサイトです。</p>
+        <p>「学び・挑戦・創造」をテーマに、これまでに培った技術をどのように活かしてきたかを紹介しています。</p>
+        <button mat-icon-button (click)="scroll('profile')"><mat-icon>arrow_circle_down</mat-icon></button>
+    </div>
+    <div class="content profile">
+        <h1>自己紹介</h1>
+        <h2>- About me -</h2>
+        <p>函館高専を卒業後、豊橋技術科学大学に進学し、画像系研究室でXR技術の研究開発に取り組んでいます。</p>
+        <p>高専ではC言語を中心に学び、現在はPython、C#、Unityを用いて研究を行っています。他にも、Angularや.NET、Djangoなど多様な技術に触れてきました。</p>
+        <p>趣味としてBlenderでのCGモデリングや、モバイルゲーム制作にも取り組んでおり、技術と創作の両面から表現力を高めています。</p>
+    </div>
 </div>

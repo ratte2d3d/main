@@ -1,12 +1,41 @@
 .container{
-    height: calc(100vh - 60px);  /* ヘッダーの高さを引いた分 */;
+    background-color: #f0f0f0;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+.content{
+    height: 100vh;
     display: flex;
+    flex-direction :column;
     align-items: center;  /* 縦中央揃え */
     justify-content: center;  /* 横中央揃え */
-    background-color: #f0f0f0;
+    padding: 0px 20%;
+    p{
+        color:#555;
+    }
+    button{
+        margin-top: 30px;
+        transition: all 0.2s ease;
+    }
+    button:hover{
+        transform: translateY(5px);
+        color: var(--primary-50);
+    }
+    mat-icon{
+        color:#777;
+        transform: scale(3);
+    }
+}
+
+.top{
+    height: calc(100vh - 60px);  /* ヘッダーの高さを引いた分 */;
     img{
         display: block;
         margin: 0 auto;
         height: 200px;
     }
+}
+
+.even{
+    background-color: #fafafa;
 }
