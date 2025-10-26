@@ -1,0 +1,57 @@
+<div class="container">
+    <h1>制作物</h1>
+    <div class="content-wrapper">
+        <mat-card class="content-card" (click)="navigate('board-game-management')">
+            <mat-card-header>
+                <mat-card-title>ボードゲームの戦績管理アプリ</mat-card-title>
+                <mat-card-subtitle>2025/2 ~ 3</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="images/kohama-yujin/programming/board_game_management/board_game_management_top.png"/>
+            <mat-card-content>
+                <p>研究室で遊ばれていたボードゲーム『カタン』の戦績を記録・可視化するWebアプリです。</p>
+                <mat-chip-set>
+                    <mat-chip *ngFor="let tech of boardGameManagementTechnologies">{{ tech }}</mat-chip>
+                </mat-chip-set>
+            </mat-card-content>
+            <mat-card-actions>
+                <a mat-button [routerLink]="['/catan']" target="_blank" rel="noopener" (click)="$event.stopPropagation()">制作物を開く</a>
+                <a mat-button href="https://github.com/ratte2d3d/main" target="_blank" rel="noopener" (click)="$event.stopPropagation()">GitHub</a>
+            </mat-card-actions>
+        </mat-card>
+
+        <mat-card class="content-card" (click)="navigate('quiz-cpp')">
+            <mat-card-header>
+                <mat-card-title>クイズアプリケーション</mat-card-title>
+                <mat-card-subtitle>2025/6・10</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="images/kohama-yujin/programming/quiz_cpp/quiz_cpp_top.png"/>
+            <mat-card-content>
+                <p>テキストおよび画像問題に対応したコマンドラインクイズアプリケーションです。</p>
+                <mat-chip-set>
+                    <mat-chip *ngFor="let tech of quizCppTechnologies">{{ tech }}</mat-chip>
+                </mat-chip-set>
+            </mat-card-content>
+            <mat-card-actions>
+                <a mat-button href="https://github.com/ratte2d3d/quiz_cpp" target="_blank" rel="noopener" (click)="$event.stopPropagation()">GitHub</a>
+            </mat-card-actions>
+        </mat-card>
+
+        <mat-card class="content-card" (click)="navigate('/kohama-yujin')">
+            <mat-card-header>
+                <mat-card-title>ポートフォリオ</mat-card-title>
+                <mat-card-subtitle>2025/10</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="images/kohama-yujin/programming/kohama/kohama_top.png"/>
+            <mat-card-content>
+                <p>このWebページです。</p>
+                <mat-chip-set>
+                    <mat-chip *ngFor="let tech of portFolioTechnologies">{{ tech }}</mat-chip>
+                </mat-chip-set>
+            </mat-card-content>
+            <mat-card-actions>
+                <a mat-button [routerLink]="['/kohama-yujin']" target="_blank" rel="noopener" (click)="$event.stopPropagation()">制作物を開く</a>
+                <a mat-button href="https://github.com/ratte2d3d/main" target="_blank" rel="noopener" (click)="$event.stopPropagation()">GitHub</a>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

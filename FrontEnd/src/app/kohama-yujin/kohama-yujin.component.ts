@@ -8,4 +8,8 @@ import { coreImports } from '../../core/core.imports';
   templateUrl: './kohama-yujin.component.html',
   styleUrl: './kohama-yujin.component.scss',
 })
-export class KohamaYujinComponent {}
+export class KohamaYujinComponent {
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}

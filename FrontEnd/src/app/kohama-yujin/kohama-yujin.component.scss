@@ -33,8 +33,21 @@
 
   .footer-center {
     display: flex;
-    gap: 24px;
+    gap: 30px;
     align-items: center;
+
+    mat-icon {
+      color: #fff;
+      transform: scale(2);
+      transition: all 0.2s ease;
+    }
+
+    mat-icon:hover {
+      cursor: pointer;
+      color: var(--primary-70);
+      transform: scale(2.5);
+      margin: 0px 10px;
+    }
   }
 
   .github-link {

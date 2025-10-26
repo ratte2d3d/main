@@ -1,0 +1,72 @@
+
+<div class="sub-header between">
+    <div class="sub-header-item left">
+        <mat-icon>code</mat-icon>
+        <h2>{{ title }}</h2>
+    </div>
+    <div class="sub-header-item center">
+        <button mat-button (click)="scrollToTop()">タイトル（TOP）</button>
+        <button mat-button (click)="scroll('abstract')">概要</button>
+        <button mat-button (click)="scroll('period')">制作期間</button>
+        <button mat-button (click)="scroll('role')">担当範囲・役割</button>
+        <button mat-button (click)="scroll('technique')">使用技術</button>
+        <button mat-button (click)="scroll('background')">背景</button>
+        <button mat-button (click)="scroll('ingenuity')">工夫した点</button>
+        <button mat-button (click)="scroll('future')">今後の展望</button>
+    </div>
+    <div class="sub-header-item right">
+        <a *ngIf="gitHub_url" [href]="gitHub_url" target="_blank" rel="noopener">
+            <img class="github-img" src="images/core/github/github-mark.png" />
+            <img class="github-img" src="images/core/github/GitHub_Logo.png" />
+        </a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+        <h1>{{ title }}</h1>
+        <a mat-stroked-button *ngIf="product_url" [href]="product_url" target="_blank" rel="noopener">
+            制作物を開く
+        </a>
+    </div>
+    <div class="content abstract">
+        <h2>概要</h2>
+        <p *ngFor="let abstract of abstract_description">{{ abstract }}</p>
+    </div>
+    <div class="content period">
+        <h2>制作期間</h2>
+        <h1>{{ period_title }}</h1>
+        <p *ngFor="let period of period_description">{{ period }}</p>
+    </div>
+    <div class="content role">
+        <h2>担当範囲・役割</h2>
+        <h1>{{ role_title }}</h1>
+        <p *ngFor="let role of role_description">{{ role }}</p>
+    </div>
+    <div class="content technique">
+        <h2>使用技術</h2>
+        <div *ngFor="let tech_header of used_technique_header; let i = index">
+            <h3>{{ tech_header }}</h3>
+            <ul>
+                <li *ngFor="let tech_name of used_technique_name[i]">{{ tech_name }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="content background">
+        <h2>背景</h2>
+        <h1>{{ background_title }}</h1>
+        <p *ngFor="let background of background_description">{{ background }}</p>
+    </div>
+    <div class="content ingenuity">
+        <h2>工夫した点</h2>
+        <h1>{{ ingenuity_title }}</h1>
+        <ul>
+            <li *ngFor="let ingenuity of ingenuity_list">{{ ingenuity }}</li>
+        </ul>
+    </div>
+    <div class="content future">
+        <h2>今後の展望</h2>
+        <h1>{{ future_title }}</h1>
+        <p *ngFor="let future of future_description">{{ future }}</p>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 <div class="header-container">
   <div class="header-image">
-    <a [routerLink]="['./']"><img src="images/header/header_kohama.png" /></a>
+    <a [routerLink]="['./']"><img src="images/kohama-yujin/header_kohama.png" /></a>
   </div>
   <div class="header-link">
     <button mat-flat-button [routerLink]="['./']">
@@ -9,10 +9,10 @@
     <button mat-flat-button [routerLink]="['./graduation-project']">
       <mat-icon>biotech</mat-icon>卒業研究
     </button>
-    <!-- <button mat-flat-button [routerLink]="['./programming']">
-      プログラミング
+    <button mat-flat-button [routerLink]="['./programming']">
+      <mat-icon>code</mat-icon>制作物
     </button>
-    <button mat-flat-button [routerLink]="['./modeling']">
+    <!-- <button mat-flat-button [routerLink]="['./modeling']">
       モデリング
     </button> -->
   </div>
@@ -28,12 +28,14 @@
 
   <div class="footer-center">
     <a class="github-link school" href="https://github.com/kohama-yujin" target="_blank" rel="noopener">
-      <img class="github-img" src="images/github/github-mark-white.png"/>
+      <img class="github-img" src="images/core/github/github-mark-white.png"/>
       <span class="github-label">School</span>
     </a>
 
+    <mat-icon (click)="scrollToTop()">keyboard_double_arrow_up</mat-icon>
+
     <a class="github-link personal" href="https://github.com/ratte2d3d" target="_blank" rel="noopener">
-      <img class="github-img" src="images/github/github-mark-white.png" />
+      <img class="github-img" src="images/core/github/github-mark-white.png" />
       <span class="github-label">Personal</span>
     </a>
   </div>
