@@ -30,6 +30,7 @@ export enum DevelopmentTools {
     GIT = 'Git',
     DOCKER = 'Docker',
     UNITY = 'Unity',
+    BLENDER = 'Blender',
 }
 
 export enum OS {
