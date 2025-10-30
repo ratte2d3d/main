@@ -33,3 +33,15 @@ h1{
         color: #555;
     }
 }
+
+@media (min-width: 1201px) {
+}
+
+@media (max-width: 1200px) {
+}
+
+@media (max-width: 768px) {
+    .container{
+        padding: 0px 5%;
+    }
+}

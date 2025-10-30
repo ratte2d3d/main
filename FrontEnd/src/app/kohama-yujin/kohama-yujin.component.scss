@@ -26,9 +26,12 @@
   padding: 0px 10vh;
   background-color: #333;
 
-  .footer-left p {
-    margin: 0;
-    color: #fff;
+  .footer-left{
+    width: 150px;
+    p {
+      margin: 0;
+      color: #fff;
+    }
   }
 
   .footer-center {
@@ -79,14 +82,27 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1201px) {
 }
 
 @media (max-width: 1200px) {
-  .header-links{
-    display: none;
+  .header-container {
+      height: 120px;
+      flex-direction: column;
+  }
+
+  .footer-container {
+    padding: 0px 10px;
   }
 }
 
-@media (min-width: 1201px) {
+@media (max-width: 768px) {
+  .footer-left p {
+    font-size: 10px;
+  }
+  .github-link {
+    .github-label {
+      font-size: 16px;
+    }
+  }
 }
