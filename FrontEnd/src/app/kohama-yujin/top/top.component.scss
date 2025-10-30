@@ -56,9 +56,11 @@
 }
 
 .skill{
+    width: 80%;
     padding: 0px 10%;
     .chart-container{
         display: flex;
+        flex-wrap: wrap;
         width: 100%;
         max-height: 50vh;
         align-items: center;
@@ -90,6 +92,13 @@
 
 @media (max-width: 768px) {
     .skill{
+        .chart-container{
+            flex-direction: column;
+            max-height: 80vh;
+            .chart-item{
+                margin: 20px auto;
+            }
+        }
         .description{
             p{
                 font-size: 10px;
