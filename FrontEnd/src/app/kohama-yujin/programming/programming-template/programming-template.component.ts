@@ -9,9 +9,9 @@ import { coreImports } from '../../../../core/core.imports';
 })
 export class ProgrammingTemplateComponent {
   @Input() title!: string;
+  @Input() abbreviation!: string;
   @Input() images!: string[];
   @Input() image_descriptions!: string[];
-  @Input() abbreviation!: string;
   @Input() period_title!: string;
   @Input() period_description!: string[];
   @Input() abstract_description!: string[];

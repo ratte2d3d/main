@@ -1,7 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { coreImports } from '../../../core/core.imports';
 import { ChartConfiguration } from 'chart.js';
-import { BaseChartDirective } from 'ng2-charts';
 import { Frameworks, Languages } from '../programming/programming.model';
 
 @Component({
@@ -17,36 +16,52 @@ export class TopComponent {
     section?.scrollIntoView({ behavior: 'smooth' });
   }
 
+  language = Languages.NAME;
   languageChartData: ChartConfiguration<'radar'>['data'] = {
     labels: [Languages.C, Languages.CSHARP, Languages.CPP, Languages.PYTHON, Languages.TYPESCRIPT],
     datasets: [
       {
-        label: Languages.NAME,
+        label: 'Level',
         data: [3, 2, 2, 4, 3],
         fill: true,
         backgroundColor: 'rgba(54, 235, 123, 0.3)',
         borderColor: 'rgba(54, 235, 123, 1)',
         pointBackgroundColor: 'rgba(54, 235, 123, 1)',
-        borderWidth: 3,
-        pointRadius: 6,
-        pointHoverRadius: 8,
+        pointRadius: 4,
+      },
+      {
+        label: 'Year',
+        data: [5, 1, 0.5, 1.5, 1],
+        fill: true,
+        backgroundColor: 'rgba(243, 95, 144, 0.3)',
+        borderColor: 'rgba(243, 95, 144, 1)',
+        pointBackgroundColor: 'rgba(243, 95, 144, 1)',
+        pointRadius: 4,
       },
     ],
   };
 
+  framework = Frameworks.NAME;
   frameworkChartData: ChartConfiguration<'radar'>['data'] = {
     labels: [Frameworks.ANGULAR, Frameworks.DJANGO, Frameworks.DOTNET],
     datasets: [
       {
-        label: Frameworks.NAME,
+        label: 'Level',
         data: [3, 2, 2],
         fill: true,
         backgroundColor: 'rgba(54, 162, 235, 0.3)',
         borderColor: 'rgba(54, 162, 235, 1)',
         pointBackgroundColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 3,
-        pointRadius: 6,
-        pointHoverRadius: 8,
+        pointRadius: 4,
+      },
+      {
+        label: 'Year',
+        data: [1, 0.5, 0.5],
+        fill: true,
+        backgroundColor: 'rgba(243, 95, 144, 0.3)',
+        borderColor: 'rgba(243, 95, 144, 1)',
+        pointBackgroundColor: 'rgba(243, 95, 144, 1)',
+        pointRadius: 4,
       },
     ],
   }
@@ -63,12 +78,9 @@ export class TopComponent {
         suggestedMax: 5,
         ticks: { stepSize: 1 },
         pointLabels: {
-          font: { size: 16 },
+          font: { size: 14 },
         },
       },
-    },
-    layout: {
-      padding: 20,
     },
     plugins: {
       legend: {
@@ -79,29 +91,6 @@ export class TopComponent {
       },
     },
   };
-
-  // showChart = false;
-  // ngAfterViewInit() {
-  //   const observer = new IntersectionObserver(entries => {
-  //     entries.forEach(entry => {
-  //       if (entry.isIntersecting) {
-  //         try {
-  //           this.showChart = true;
-  //           // Chart.js をリセットしてアニメーションを再生
-  //           this.chartDirective?.chart?.reset();
-  //           this.chartDirective?.update();
-  //         } catch (e) {
-  //           // 安全にフォールバック：showChart トグルでテンプレート内で再描画する方法も可能
-  //           this.showChart = false;
-  //           // 少し待ってから true に戻すことで再描画・再アニメーションを誘発
-  //           setTimeout(() => (this.showChart = true), 50);
-  //         }
-  //       }
-  //     });
-  //   });
-
-  //   observer.observe(this.chartWrapper.nativeElement);
-  // }
 
   constructor() {
     window.scrollTo({ top: 0, behavior: 'smooth' });

@@ -11,6 +11,7 @@ import { Databases, DBaaS, DevelopmentTools, Frameworks, IaaS, Languages, PaaS }
 })
 export class BoardGameManagementComponent {
   title = 'ボードゲームの戦績管理アプリ';
+  abbreviation = '戦績管理アプリ';
   images = [
     'images/kohama-yujin/programming/board_game_management/catan1.png',
     'images/kohama-yujin/programming/board_game_management/catan2.png',

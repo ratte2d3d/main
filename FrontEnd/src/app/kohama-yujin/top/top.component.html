@@ -5,37 +5,51 @@
         <button mat-icon-button (click)="scroll('about')"><mat-icon>arrow_circle_down</mat-icon></button>
     </div>
     <div class="content even about">
-        <h1>このサイトについて</h1>
-        <h2>- About this site -</h2>
+        <div class="title">
+            <h1>このサイトについて</h1>
+            <h2>- About this site -</h2>
+        </div>
         <p>このサイトは、私の研究・開発経験・制作実績をまとめたポートフォリオサイトです。</p>
         <p>「学び・挑戦・創造」をテーマに、これまでに培った技術をどのように活かしてきたかを紹介しています。</p>
         <button mat-icon-button (click)="scroll('profile')"><mat-icon>arrow_circle_down</mat-icon></button>
     </div>
     <div class="content profile">
-        <h1>自己紹介</h1>
-        <h2>- About me -</h2>
+        <div class="title">
+            <h1>自己紹介</h1>
+            <h2>- About me -</h2>
+        </div>
         <p>函館高専を卒業後、豊橋技術科学大学に編入学し、現在は豊橋技術科学大学大学院の画像系研究室でXR技術の研究開発に取り組んでいます。</p>
         <p>高専ではC言語を中心に学び、現在はPython、C#、Unityを用いて研究を行っています。他にも、Angularや.NET、Djangoなど多様な技術に触れてきました。</p>
         <p>趣味としてBlenderでのCGモデリングや、モバイルゲーム制作にも取り組んでおり、技術と創作の両面から表現力を高めています。</p>
         <button mat-icon-button (click)="scroll('skill')"><mat-icon>arrow_circle_down</mat-icon></button>
     </div>
     <div #chartWrapper class="content even skill last">
-        <h1>スキル</h1>
-        <h2>- My skills -</h2>
-        <p>「5：言語を十分に使え、最新の技術や、システム側の実装についても非常に詳しい」「4：単一の言語に関しては、自身でライブラリやフレームワークを作ることができる」「3：参考書やインターネットで調べながら、自身で実装を進められる」「2：詳しい人に聞きながら伴走してもらえれば、ある程度実装を進められる」「1：自分で勉強したり、授業で習ったことがある程度で、実装の経験はない」</p>
+        <div class="title">
+            <h1>スキル</h1>
+            <h2>- My skills -</h2>
+        </div>
         <div class="chart-container">
-            <canvas
-                baseChart
-                [data]="languageChartData"
-                [type]="'radar'"
-                [options]="radarChartOptions">
-            </canvas>
-            <canvas
-                baseChart
-                [data]="frameworkChartData"
-                [type]="'radar'"
-                [options]="radarChartOptions">
-            </canvas>
+            <div class="chart-item">
+                <h3>{{ language }}</h3>
+                <canvas
+                    baseChart
+                    [data]="languageChartData"
+                    [type]="'radar'"
+                    [options]="radarChartOptions">
+                </canvas>
+            </div>
+            <div class="chart-item">
+                <h3>{{ framework }}</h3>
+                <canvas
+                    baseChart
+                    [data]="frameworkChartData"
+                    [type]="'radar'"
+                    [options]="radarChartOptions">
+                </canvas>
+            </div>
+        </div>
+        <div class="description">
+            <p>「5：言語を十分に使え、最新の技術や、システム側の実装についても非常に詳しい」、「4：単一の言語に関しては、自身でライブラリやフレームワークを作ることができる」、「3：参考書やインターネットで調べながら、自身で実装を進められる」、「2：詳しい人に聞きながら伴走してもらえれば、ある程度実装を進められる」、「1：自分で勉強したり、授業で習ったことがある程度で、実装の経験はない」</p>
         </div>
     </div>
 </div>

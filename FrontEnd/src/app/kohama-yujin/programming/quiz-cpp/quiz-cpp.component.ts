@@ -11,6 +11,7 @@ import { DevelopmentTools, Languages, OS } from '../programming.model';
 })
 export class QuizCppComponent {
   title = 'クイズアプリケーション';
+  abbreviation = 'クイズアプリ';
   images = [
     'images/kohama-yujin/programming/quiz_cpp/quiz_cpp1.png',
     'images/kohama-yujin/programming/quiz_cpp/quiz_cpp2.png',

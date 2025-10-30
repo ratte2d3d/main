@@ -14,8 +14,6 @@ export class ProgrammingComponent {
   boardGameManagementTechnologies = [
     Frameworks.ANGULAR,
     Frameworks.DJANGO,
-    Languages.TYPESCRIPT,
-    Languages.PYTHON,
   ];
 
   quizCppTechnologies = [

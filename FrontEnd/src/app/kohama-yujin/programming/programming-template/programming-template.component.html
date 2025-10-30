@@ -2,17 +2,17 @@
 <div class="sub-header between">
     <div class="sub-header-item left">
         <mat-icon>code</mat-icon>
-        <h2>{{ title }}</h2>
+        <h2>{{ abbreviation }}</h2>
     </div>
     <div class="sub-header-item center">
-        <button mat-button (click)="scrollToTop()">タイトル（TOP）</button>
+        <button mat-button (click)="scrollToTop()">TOP</button>
         <button mat-button (click)="scroll('abstract')">概要</button>
-        <button mat-button (click)="scroll('period')">制作期間</button>
-        <button mat-button (click)="scroll('role')">担当範囲・役割</button>
-        <button mat-button (click)="scroll('technique')">使用技術</button>
+        <button mat-button (click)="scroll('period')">期間</button>
+        <button mat-button (click)="scroll('role')">担当</button>
+        <button mat-button (click)="scroll('technique')">技術</button>
         <button mat-button (click)="scroll('background')">背景</button>
-        <button mat-button (click)="scroll('ingenuity')">工夫した点</button>
-        <button mat-button (click)="scroll('future')">今後の展望</button>
+        <button mat-button (click)="scroll('ingenuity')">工夫点</button>
+        <button mat-button (click)="scroll('future')">展望</button>
     </div>
     <div class="sub-header-item right">
         <a *ngIf="gitHub_url" [href]="gitHub_url" target="_blank" rel="noopener">
