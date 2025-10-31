@@ -78,7 +78,7 @@ export class TopComponent {
         suggestedMax: 5,
         ticks: { stepSize: 1 },
         pointLabels: {
-          font: { size: 14 },
+          font: { size: 12 },
         },
       },
     },
@@ -86,7 +86,7 @@ export class TopComponent {
       legend: {
         position: 'bottom',
         labels: {
-          font: { size: 14 },
+          font: { size: 12 },
         },
       },
     },

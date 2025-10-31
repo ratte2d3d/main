@@ -27,7 +27,7 @@
   background-color: #333;
 
   .footer-left{
-    width: 150px;
+    width: 200px;
     p {
       margin: 0;
       color: #fff;
@@ -78,7 +78,7 @@
   } // gold
 
   .footer-right {
-    width: 150px;
+    width: 200px;
   }
 }
 
@@ -93,6 +93,13 @@
 
   .footer-container {
     padding: 0px 10px;
+    .footer-left{
+      width: 150px;
+    }
+
+    .footer-right {
+      width: 150px;
+    }
   }
 }
 
